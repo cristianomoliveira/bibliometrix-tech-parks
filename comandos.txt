@@ -1,0 +1,24 @@
+
+
+#BILIOMETRIX
+
+
+library("bibliometrix")
+
+#lendo arquivo
+dados = readFiles(file.choose())
+
+
+
+#Convertendo para um data frame
+artigos = convert2df(dados, dbsource = "scopus", format = "bibtex")
+
+#analisando os dados
+
+resultado = biblioAnalysis(artigos, sep = ";")
+
+#resumo dos resultados
+
+resumo = summary(object = resultado, k = 10, pause = TRUE)
+
+
